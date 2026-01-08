@@ -214,12 +214,25 @@ complete_reproduction_plan:
 
   environment_setup: |
     ## Python 버전
-    - Python 3.8+
+    - Python 3.10+ (uv 권장)
+
+    ## 패키지 관리 (uv 사용 - 권장)
+    uv를 사용하여 독립적이고 재현 가능한 환경 구성:
+    ```bash
+    # 프로젝트 초기화
+    uv init
+
+    # 의존성 추가
+    uv add torch numpy [기타 필요한 패키지]
+
+    # 실행
+    uv run python main.py
+    ```
 
     ## 핵심 의존성
     ```
-    torch>=1.9.0
-    numpy>=1.20.0
+    torch>=2.0.0
+    numpy>=1.24.0
     [기타 필요한 패키지]
     ```
 
@@ -227,11 +240,6 @@ complete_reproduction_plan:
     - GPU: [NVIDIA GPU with X GB VRAM]
     - RAM: [최소 X GB]
     - 저장공간: [X GB]
-
-    ## 설치 명령
-    ```bash
-    pip install -r requirements.txt
-    ```
 
     ## 데이터셋 준비
     - [데이터셋 이름]: [다운로드 방법]
@@ -274,8 +282,8 @@ complete_reproduction_plan:
     검증: 논문 결과 재현
 
     ## Phase 5: 문서화 (마지막)
-    11. requirements.txt - 의존성 목록
-    12. README.md - 사용 방법 문서
+    11. pyproject.toml - uv 프로젝트 설정 및 의존성
+    12. README.md - 사용 방법 문서 (uv run 명령 포함)
 
     ## 누락된 세부사항 처리
     - [논문에 없는 것 1]: [제안하는 기본값]

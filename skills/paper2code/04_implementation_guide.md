@@ -81,8 +81,8 @@ EXECUTION PATTERN:
 
 ### 1단계: 설정 및 환경 파일
 ```
+pyproject.toml     # uv 프로젝트 설정 (uv init으로 생성)
 config.py          # 모든 하이퍼파라미터와 설정
-requirements.txt   # (나중에 완성하지만 빈 파일 생성)
 ```
 
 ### 2단계: 핵심 유틸리티와 베이스 클래스
@@ -118,8 +118,17 @@ experiments/run_main.py      # 메인 실험 스크립트
 ### 6단계: 진입점 및 문서화
 ```
 main.py            # 메인 진입점
-README.md          # 사용 방법 문서
-requirements.txt   # 최종 의존성 목록
+README.md          # 사용 방법 문서 (uv run 명령 포함)
+```
+
+### 환경 설정 명령 (uv 사용)
+```bash
+# 프로젝트 시작 시
+uv init
+uv add torch numpy [필요한 패키지들]
+
+# 실행
+uv run python main.py
 ```
 
 ---
